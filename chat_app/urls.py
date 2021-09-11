@@ -2,8 +2,8 @@
 from django.urls import path
 
 # Owns
-from .views import *
+from . import views
 
 urlpatterns = [
-    
+    path('', views.home, name='home'),
 ]
