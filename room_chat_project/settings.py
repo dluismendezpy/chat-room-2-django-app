@@ -43,6 +43,9 @@ INSTALLED_APPS = [
 
     # My apps
     'chat_app',
+
+    # channels
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +140,14 @@ STATICFILES_DIR = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Redis conf.
+ASGI_APPLICATION = "room_chat_project.asgi.application"
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
