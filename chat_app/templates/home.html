@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                <div class="column is-6 is-offset-3 mb-6">
+                    <section class="hero is-primary">
+                        <div class="hero-body">
+                            <p class="title">
+                                Chatty
+                            </p>
+                            <p class="subtitle">
+                                A simple chat built with Django, Channels and Redis
+                            </p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="column is-4 is-offset-4">
+                    <div class="field">
+                        <label>Room name</label>
+
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Room name" id="room-name-input">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Username</label>
+
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Username" id="username-input">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <a class="button is-info" id="room-name-submit">Submit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
