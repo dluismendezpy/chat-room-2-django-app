@@ -1,3 +1,7 @@
+# Django
 from django.contrib import admin
 
-# Register your models here.
+# Owns
+from .models import *
+
+admin.site.register(Message)
