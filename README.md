@@ -7,7 +7,7 @@ This is a real-time chat application that allows several users to chat simultane
 - channels-redis
 - redis-server
 - channels 
-- cjango-rq
+- django-rq
 - psycopg2
 - pytest-django
 - requests
