@@ -1,5 +1,5 @@
 # Chat App
-This is a real-time chat application that allows several users to speak simultaneously in several chat rooms
+This is a real-time chat application that allows several users to chat simultaneously in several chat rooms
 
 ### To run this application you need to install:
 - django
