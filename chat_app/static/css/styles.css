@@ -1,0 +1,9 @@
+.logo_header {
+    text-decoration: none;
+    color: #20c997;
+}
+
+.box-div {
+    max-height: 300px; 
+    overflow-y: scroll;
+}
