@@ -6,6 +6,7 @@ from asgiref.sync import sync_to_async
 
 # Owns
 from .models import Message
+from . import chat_bot
 
 def home(request):
     return render(request, 'home.html', {})

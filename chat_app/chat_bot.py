@@ -8,11 +8,10 @@ from django.conf import settings
 
 
 def execute_command(command):
-    created = datetime.now()
+    created_at = datetime.now()
     response = {
-        'author': 'Bot',
-        'created_date': created.strftime('%Y-%m-%d'),
-        'created_time': created.strftime('%H:%M'),
+        'username': 'Bot',
+        'created_at': created_at.strftime('%Y-%m-%d'),
     }
 
     command_data = command.split("=")
@@ -24,7 +23,7 @@ def execute_command(command):
         if command_data[0] == 'stock':
             try:
                 queue = django_rq.get_queue(settings.REDIS_SETTING)
-                job = queue.enqueue(get_stock, parameter=command_data[1])
+                job = queue.enqueue(get_stock(command_data[1]))
                 response['job_id'] = str(job.key)[:-1].split(':')[2]
                 response['status'] = 'queued'
                 response['message'] = f'Command {command_data[0]} started and will return the result shortly'
@@ -33,7 +32,7 @@ def execute_command(command):
                 response['message'] = 'Error: Something goes wrong'
         else:
             response['status'] = 'error'
-            response['message'] = f'Error: Command {command_data[0]} doesn\'t exists'
+            response['message'] = f"Error: Command {command_data[0]} doesn't exists"
     return response
 
 
@@ -41,10 +40,9 @@ def command_status(job_id):
     response = {}
     queue = django_rq.get_queue(settings.REDIS_SETTING)
     job = queue.fetch_job(job_id)
-    response['author'] = 'Bot'
+    response['username'] = 'Bot'
     created = datetime.now()
-    response['created_date'] = created.strftime('%Y-%m-%d')
-    response['created_time'] = created.strftime('%H:%M')
+    response['created_at'] = created.strftime('%Y-%m-%d')
 
     if job.is_finished:
         response['status'] = 'done'
