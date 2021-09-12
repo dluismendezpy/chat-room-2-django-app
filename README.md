@@ -18,6 +18,13 @@ This is a real-time chat application that allows several users to speak simultan
 ### To clone this repository, type in your terminal:
 `git clone https://github.com/dluismendezpy/chat-room-2-django-app.git`
 
+### Usage
+- Enter a chat room name
+- Enter a username and submit
+- If you wish, you can open another tab in the browser and enter the current name of the chat room and start talking simultaneously
+- To close the room you can press the button LogOut ChatRoom
+- The ChatBoot is not completely finished yet
+
 ### Type in your terminal:
 Redis server: `redis-server`
 
